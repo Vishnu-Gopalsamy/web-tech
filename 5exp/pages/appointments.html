@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Appointments - HealthCare Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e3f2fd;
+            color: #333;
+            font-family: 'Arial', sans-serif;
+        }
+        header, footer {
+            background: linear-gradient(90deg, #0d47a1, #1976d2);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        section, article, aside {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #90caf9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        h2, h3 {
+            color: #1565c0;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #64b5f6;
+        }
+        ul li {
+            background: #42a5f5;
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+            border-radius: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+            background-color: white;
+            color: #1e88e5 !important;
+            border-radius: 20px;
+        }
+        .navbar {
+            background: #42a5f5;
+        }
+        .form-label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #1e88e5;
+            border-color: #1e88e5;
+        }
+        .btn-primary:hover {
+            background-color: #1565c0;
+            border-color: #1565c0;
+        }
+        .btn-secondary {
+            background-color: #90caf9;
+            border-color: #90caf9;
+        }
+        .btn-secondary:hover {
+            background-color: #64b5f6;
+            border-color: #64b5f6;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        .form-control {
+            border-radius: 5px;
+            border: 1px solid #90caf9;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <header>HealthCare Solutions</header>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="../main.html">HealthCare</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="../main.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="appointments.html">Appointments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="medical_bill_calculator.html">Medical Bill Calculator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <section>
+            <h2>Book an Appointment</h2>
+            <p>Fill out the form below to book an appointment with one of our specialists:</p>
+            <form>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" class="form-control" id="phone" required>
+                </div>
+                <div class="mb-3">
+                    <label for="date" class="form-label">Preferred Date</label>
+                    <input type="date" class="form-control" id="date" required>
+                </div>
+                <div class="mb-3">
+                    <label for="doctor" class="form-label">Preferred Doctor</label>
+                    <select class="form-select" id="doctor" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option>Dr. John Doe - Cardiologist</option>
+                        <option>Dr. Jane Smith - Neurologist</option>
+                        <option>Dr. Emily Johnson - Orthopedic Surgeon</option>
+                        <option>Dr. Michael Brown - Pediatrician</option>
+                        <option>Dr. Sarah Davis - General Practitioner</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="submitForm(event)">Submit</button>
+                <button type="button" class="btn btn-secondary" onclick="resetForm()">Reset</button>
+            </form>
+        </section>
+    </div>
+
+    <footer class="mt-4">
+        <p>© 2025 HealthCare Solutions</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('name').form;
+            const inputs = form.querySelectorAll('input, select');
+            let allValid = true;
+
+            inputs.forEach(input => {
+                if (!input.value) {
+                    input.setCustomValidity('This field is required');
+                    allValid = false;
+                } else {
+                    input.setCustomValidity('');
+                }
+            });
+
+            if (allValid) {
+                alert('Your appointment has been booked successfully!');
+                form.reset();
+            } else {
+                form.reportValidity();
+            }
+        }
+
+        function resetForm() {
+            document.getElementById('name').form.reset();
+        }
+    </script>
+</body>
+</html>
