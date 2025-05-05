@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Medical Bill Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        body { 
+            background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+            min-height: 100vh;
+        }
+        header, footer {
+            background: linear-gradient(90deg, #1565c0, #1976d2);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .service-box {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .service-box:hover { transform: translateY(-5px); }
+        .service-box h4 {
+            color: #1565c0;
+            border-bottom: 2px solid #90caf9;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .total-section {
+            background: linear-gradient(45deg, #1565c0, #42a5f5);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .navbar { background: #1976d2; }
+        .container { max-width: 800px; }
+    </style>
+</head>
+<body>
+    <header>HealthCare Solutions</header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">HealthCare</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="../main.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="doctors.html">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="appointments.html">Appointments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="medical_bill_calculator.html">Medical Bill Calculator</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form id="billForm">
+            <div class="service-box">
+                <h4><i class="fas fa-stethoscope"></i> Medical Services</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="generalConsult" data-price="50">
+                            <label class="form-check-label" for="generalConsult">General Consultation ($50)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="specialistConsult" data-price="100">
+                            <label class="form-check-label" for="specialistConsult">Specialist Consultation ($100)</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="xray" data-price="150">
+                            <label class="form-check-label" for="xray">X-Ray ($150)</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input type="checkbox" class="form-check-input" id="bloodTest" data-price="75">
+                            <label class="form-check-label" for="bloodTest">Blood Test ($75)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-box">
+                <h4><i class="fas fa-pills"></i> Medications</h4>
+                <select class="form-select mb-3" id="medicine">
+                    <option value="0">Select Medication...</option>
+                    <option value="10">Basic Medicine Pack ($10)</option>
+                    <option value="25">Premium Medicine Pack ($25)</option>
+                    <option value="50">Complete Health Pack ($50)</option>
+                </select>
+                <input type="number" class="form-control" id="quantity" value="1" min="1" max="10">
+            </div>
+
+            <div class="service-box">
+                <h4><i class="fas fa-shield-alt"></i> Insurance</h4>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="insurance">
+                    <label class="form-check-label" for="insurance">Apply Insurance (80% coverage)</label>
+                </div>
+            </div>
+
+            <div class="total-section">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <p>Subtotal: $<span id="subtotal">0.00</span></p>
+                        <p>Tax (10%): $<span id="tax">0.00</span></p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Insurance: $<span id="insuranceAmt">0.00</span></p>
+                        <h4>Total: $<span id="total">0.00</span></h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-3">
+                <button type="button" class="btn btn-secondary" onclick="resetForm()">Reset</button>
+                <button type="button" class="btn btn-primary" onclick="printBill()">Print</button>
+            </div>
+        </form>
+    </div>
+
+    <footer class="mt-4">© 2025 HealthCare Solutions</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('input, select').forEach(el => el.addEventListener('change', calculate));
+        function calculate() {
+            let subtotal = 0;
+            document.querySelectorAll('input[type="checkbox"][data-price]').forEach(cb => {
+                if(cb.checked) subtotal += parseFloat(cb.dataset.price);
+            });
+            subtotal += parseFloat(document.getElementById('medicine').value) * 
+                       parseFloat(document.getElementById('quantity').value);
+            const tax = subtotal * 0.1;
+            const insurance = document.getElementById('insurance').checked ? (subtotal + tax) * 0.8 : 0;
+            const total = subtotal + tax - insurance;
+            ['subtotal', 'tax', 'insuranceAmt', 'total'].forEach(id => 
+                document.getElementById(id).textContent = (id === 'total' ? total : id === 'tax' ? tax : 
+                id === 'insuranceAmt' ? insurance : subtotal).toFixed(2));
+        }
+        function resetForm() {
+            document.getElementById('billForm').reset();
+            calculate();
+        }
+        function printBill() {
+            window.print();
+        }
+    </script>
+</body>
+</html>
