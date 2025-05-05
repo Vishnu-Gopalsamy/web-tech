@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>HealthCare Solutions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e3f2fd;
+            color: #333;
+        }
+        header, footer {
+            background: linear-gradient(90deg, #0d47a1, #1976d2);
+            color: white;
+            text-align: center;
+            padding: 15px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+        section, article, aside {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid #90caf9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            color: #1565c0;
+        }
+        img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #64b5f6;
+        }
+        ul li {
+            background: #42a5f5;
+            
+            margin: 5px 0;
+            padding: 8px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .navbar-nav .nav-link {
+            color: white !important;
+            border-radius: 20px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .navbar-nav .nav-link:hover {
+
+            background-color: white;
+            color: #1e88e5 !important;
+            border-radius: 20px;
+        }
+        .navbar {
+            background: #42a5f5;
+        }
+    </style>
+</head>
+<body>
+
+    <header>HealthCare Solutions</header>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" href="#">HealthCare</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="main.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/doctors.html">Doctors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/appointments.html">Appointments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/medical_bill_calculator.html">Medical Bill Calculator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/personal-info.html">Personal Info</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pages/login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8">
+                <section>
+                    <h2>Our Facilities</h2>
+                    <ul>
+                        <li>State-of-the-art Laboratories</li>
+                        <li>24/7 Emergency Room</li>
+                        <li>Advanced Surgical Theaters</li>
+                        <li>Comfortable Patient Rooms</li>
+                        <li>Pharmacy &amp; Rehabilitation Center</li>
+                    </ul>
+                </section>
+                <article class="mt-4">
+                    <h2>Our Services</h2>
+                    <p>We offer personalized healthcare services tailored to meet your needs:</p>
+                    <ul>
+                        <li>General Checkups</li>
+                        <li>Cardiology</li>
+                        <li>Neurology</li>
+                        <li>Orthopedics</li>
+                        <li>Pediatrics</li>
+                    </ul>
+                </article>
+            </div>
+            <aside class="col-md-4 text-center bg-light p-3">
+                <a href="#" onclick="document.getElementById('spinner').style.display='block'; setTimeout(function(){ document.getElementById('spinner').style.display='none'; }, 5000);" style="text-decoration: none;"><h3>Latest Updates</h3></a>
+                <div id="spinner" class="spinner-border text-primary" role="status" style="display:none; margin: 0 auto;">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <p>Stay updated with the latest medical advancements and health news:</p>
+                <table class="table table-striped table-bordered">
+                    <thead class="table-primary">
+                        <tr>
+                            <th scope="col">Topic</th>
+                            <th scope="col">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>New COVID-19 Treatment Methods</td>
+                            <td>Jan 15, 2025</td>
+                        </tr>
+                        <tr>
+                            <td>AI in Healthcare</td>
+                            <td>Feb 10, 2025</td>
+                        </tr>
+                        <tr>
+                            <td>Upcoming Health Workshops</td>
+                            <td>Mar 5, 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <img src="a.jpg" alt="img">
+            </aside>
+        </div>
+    </div>
+
+    <footer class="mt-4">
+        <p>© 2025 HealthCare Solutions</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
